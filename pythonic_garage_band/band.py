@@ -1,7 +1,10 @@
 class Band:
+    instances = []
+
     def __init__(self, name, members):
         self.name = name
         self.members = members
+        self.instances.append(self)
 
     def __str__(self):
         return f"We are {self.name}, with members {self.members}."
@@ -15,9 +18,9 @@ class Band:
             solos.append(x.play_solo())
         return solos
 
-    @staticmethod
-    def to_list():
-        pass
+    @classmethod
+    def to_list(cls):
+        return cls.instances
 
 class Musician:
     def __init__(self, name):
