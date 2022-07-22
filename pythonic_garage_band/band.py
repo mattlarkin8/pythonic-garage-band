@@ -4,7 +4,16 @@ class Band:
         self.members = members
 
     def __str__(self):
-        return f""
+        return f"We are {self.name}, with members {self.members}."
+
+    def __repr__(self):
+        return f"{type(self).__name__} instance. Name = {self.name}"
+
+    def play_solos(self):
+        solos = []
+        for x in self.members:
+            solos.append(x.play_solo())
+        return solos
 
     @staticmethod
     def to_list():
